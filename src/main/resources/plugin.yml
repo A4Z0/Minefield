@@ -1,0 +1,8 @@
+name: Minefield
+version: '${project.version}'
+author: A4Z0
+
+main: com.a4z0.minefield.Minefield
+load: POSTWORLD
+database: false
+api-version: 1.13
