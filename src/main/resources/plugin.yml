@@ -1,5 +1,7 @@
 name: Minefield
 version: '${project.version}'
+website: 'https://github.com/A4Z0/Minefield'
+description: A seed-based minesweeper.
 author: A4Z0
 
 main: com.a4z0.minefield.Minefield

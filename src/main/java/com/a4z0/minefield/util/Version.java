@@ -1,5 +1,5 @@
 /*
- *     Rubrum
+ *     Minefield
  *     Copyright (C) 2022.
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.a4z0.minefield;
+package com.a4z0.minefield.util;
 
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
