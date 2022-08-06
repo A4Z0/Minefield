@@ -29,7 +29,7 @@ public class SpawnNumberPacket extends Packet {
     private static final Class<?> WORLD_CLASS;
     private static final Class<?> ARMOR_STAND_CLASS;
     private static final Class<?> CRAFT_WORLD_CLASS;
-    private static final Class<?> PACKET_SPAWN_ENTITY;
+    private static Class<?> PACKET_SPAWN_ENTITY;
     private static final Class<?> CRAFT_CHAT_MESSAGE_CLASS;
     private static final Class<?> ICHAT_BASE_COMPONENT_CLASS;
 
@@ -38,7 +38,13 @@ public class SpawnNumberPacket extends Packet {
             WORLD_CLASS = Class.forName(Version.V1_16_R1.isEqualOrNewer(Version.getRunningVersion()) ? "net.minecraft.world.level.World" : "net.minecraft.server." + Version.getPacketName() + ".World");
             CRAFT_WORLD_CLASS = Class.forName("org.bukkit.craftbukkit." + Version.getPacketName() + ".CraftWorld");
             ARMOR_STAND_CLASS = Class.forName(Version.V1_16_R1.isEqualOrNewer(Version.getRunningVersion()) ? "net.minecraft.world.entity.decoration.EntityArmorStand" : "net.minecraft.server." + Version.getPacketName() + ".EntityArmorStand");
-            PACKET_SPAWN_ENTITY = Class.forName(Version.V1_16_R1.isEqualOrNewer(Version.getRunningVersion()) ? "net.minecraft.network.protocol.game.PacketPlayOutSpawnEntityLiving" : "net.minecraft.server." + Version.getPacketName() + ".PacketPlayOutSpawnEntityLiving");
+
+            try {
+                PACKET_SPAWN_ENTITY = Class.forName(Version.V1_16_R1.isEqualOrNewer(Version.getRunningVersion()) ? "net.minecraft.network.protocol.game.PacketPlayOutSpawnEntityLiving" : "net.minecraft.server." + Version.getPacketName() + ".PacketPlayOutSpawnEntityLiving");
+            }catch(ClassNotFoundException e) {
+                PACKET_SPAWN_ENTITY = Class.forName("net.minecraft.network.protocol.game.PacketPlayOutSpawnEntity");
+            }
+
             CRAFT_CHAT_MESSAGE_CLASS = Class.forName("org.bukkit.craftbukkit." + Version.getPacketName() + ".util.CraftChatMessage");
             ICHAT_BASE_COMPONENT_CLASS = Class.forName(Version.V1_16_R1.isEqualOrNewer(Version.getRunningVersion()) ? "net.minecraft.network.chat.IChatBaseComponent" : "net.minecraft.server." + Version.getPacketName() + ".IChatBaseComponent");
         }catch (ClassNotFoundException e) {

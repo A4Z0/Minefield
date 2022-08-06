@@ -146,6 +146,8 @@ import java.util.logging.Level;
         if(!lastIds.containsKey(Player))
             lastIds.put(Player, new HashSet<>());
 
+        removeTrackedLocation(Player);
+
         Location L1 = Location.clone().subtract(0, 1, 0);
 
         for(int X = (L1.getBlockX() -1); X <= (L1.getBlockX() +1); X++) {

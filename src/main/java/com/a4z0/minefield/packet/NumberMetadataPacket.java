@@ -43,12 +43,12 @@ public class NumberMetadataPacket extends Packet {
     *
     * @param ID Number ID to send the metadata.
     * @param DataWatcher Number DataWatcher.
-    * @param Bool ?
+    * @param updateAll true for force update all.
     */
 
-    public NumberMetadataPacket(int ID, Object DataWatcher, boolean Bool) {
+    public NumberMetadataPacket(int ID, Object DataWatcher, boolean updateAll) {
         try {
-            this.NBTObject = PACKET_ENTITY_METADATA_CLASS.getDeclaredConstructor(int.class, DataWatcher.getClass(), boolean.class).newInstance(ID, DataWatcher, false);
+            this.NBTObject = PACKET_ENTITY_METADATA_CLASS.getDeclaredConstructor(int.class, DataWatcher.getClass(), boolean.class).newInstance(ID, DataWatcher, updateAll);
         }catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException | InstantiationException e) {
             throw new NullPointerException("Can't create Number metadata");
         }
