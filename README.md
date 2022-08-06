@@ -19,5 +19,7 @@ You need at least [Java 8](https://www.java.com/) running on your machine.
 Any block can be a bomb.
 You can see the block number by holding a compass.
 
+![Screenshot](https://github.com/A4Z0/Minefield/blob/master/assets/javaw_bjmvINayI8.png?raw=true "Optional Title")
+
 #### License
 [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
